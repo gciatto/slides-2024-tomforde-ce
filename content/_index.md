@@ -72,7 +72,47 @@ The real issue with systems like this one (arguably, small scale) is
 ## Tear down the wall:
 ## small-scale edge-cloud continuum
 
+### **Desiderata**
 
+* *Runtime addition and removal* of hardware resources
+* *Heterogeneous* hardware resources
+* (Relative) ease of use: people with *no system-level knowledge* should be able to use it
+* Capability to host *long-lived* services and execute *short-lived* jobs
+* Integration with the *existing authentication and authorization* infrastructure
+
+---
+
+## Problem model
+
+#### Roles
+
+*student*, *researcher*, *IT Personnel*
+* They differ by the kinds of resources that should be able to access
+* Different contexts may require different roles, but the right management should be similar<br>
+(unless the scale grows signficantly)
+
+#### Workloads
+
+*jobs* (short-lived), *services* (long-lived)
+
+#### Capabilities and constraints
+
+workloads must be able to *constrain* their execution to nodes with specific *capabilities*, e.g.:<br>
+GPU or FPGA (hardware), specific OS, specific runtime (e.g., the JVM, or the CLR)
+
+#### Isolation
+
+Different workloads $\to$ different constraints $\to$ isolation at multiple levels
+
+#### access control
+
+RBAC backed by a pre-existing central authority
+
+---
+
+## Architecture
+
+![architecture](architecture.png)
 
 ---
 

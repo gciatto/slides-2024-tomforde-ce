@@ -64,11 +64,24 @@ section.has-light-background {
 	}
 }
 
+.reveal h3 {
+	margin-top: .5em;
+	text-transform: none;
+}
+
+.reveal h4 {
+	margin: 1em 0px 0px 0px;
+}
+
+.reveal p {
+	margin: 0 0 0 0;
+}
+
 .reveal .slide-background {
 	background-color: $backgroundColor;
-	background-image: url("../unibo-seal-red.svg");
+	background-image: url("../unibo-seal-blue.svg");
 	background-repeat: no-repeat;
-	background-position: 0.5% 99.5%;
+	background-position: 0.45% 99.2%;
 	background-size: 10%;
 	background-clip: border-box;
 	border-radius: 30px;
