@@ -18,7 +18,7 @@ on:
 permissions: {}
 
 jobs:
-  Build-Slides:
+  ci-cd:
     runs-on: ubuntu-latest
     permissions:
       contents: write
