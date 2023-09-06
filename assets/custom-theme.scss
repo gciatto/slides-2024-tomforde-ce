@@ -27,10 +27,10 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono');
 // @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono');
 
-// $backgroundColor: #fff;
+$backgroundColor: white;
 
-// $mainColor: #000;
-// $headingColor: #111;
+$mainColor: #000;
+$headingColor: #111;
 
 $mainFontSize: 2em;
 // $mainFont: 'Roboto', sans-serif;
@@ -48,7 +48,8 @@ $headingLetterSpacing: normal;
 $headingFontWeight: 600;
 $linkColor: #2690e7;
 $linkColorHover: lighten( $linkColor, 25% );
-$selectionBackgroundColor: lighten( $linkColor, 25% );
+$selectionBackgroundColor: darken( $linkColor, 25% );
+$detailBackgroundColor: #1c89b3;
 
 $heading1Size: 2.5em;
 $heading2Size: 1.6em;
@@ -62,6 +63,29 @@ section.has-light-background {
 		color: #222;
 	}
 }
+
+.reveal .slide-background {
+	background-color: $backgroundColor;
+	background-image: url("../unibo-seal-red.svg");
+	background-repeat: no-repeat;
+	background-position: 0.5% 99.5%;
+	background-size: 10%;
+	background-clip: border-box;
+	border-radius: 30px;
+	border-style: solid;
+	border-color: $detailBackgroundColor;
+	border-width: 0.3em;
+}
+
+.reveal .slide-background:after {
+	content: "M. Baiardi, G. Ciatto, D. Pianini - Infrastructures for the Edge-Cloud Continuum on a Small Scale: a Practical Case Study - ASMECC 2023";
+	position: absolute;
+	bottom: 2%;
+	right: 3%;
+	z-index: -1;
+	color: $detailBackgroundColor;
+	font-size: .5em;
+  }
 
 .reveal pre {
 	margin: 1em auto;

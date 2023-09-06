@@ -1,6 +1,6 @@
-baseURL = "https://danysk.github.io/Template-Hugo-Reveal-Slides"
+baseURL = "https://danysk.github.io/slides-2023-asmecc"
 languageCode = "en-us"
-title = "A Hugo theme for creating Reveal.js presentations"
+title = "Infrastructures for the Edge-Cloud Continuum on a Small Scale: a Practical Case Study"
 disableKinds = ["sitemap", "RSS"]
 theme = "reveal-hugo"
 publishDir = "build"
@@ -19,7 +19,7 @@ unsafe = true
 # choose between Hugo compile-time or Highlight.js
 # syntax highlighting for code inside of code fences
 [markup.highlight]
-#codeFences = false  # use highlight.js 
+#codeFences = false  # use highlight.js
 codeFences = true  # use hugo highlighting at compile time
 style = "tango"  # set a style for hugo highlighting
 

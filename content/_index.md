@@ -1,8 +1,8 @@
- 
+
 +++
 
-title = "Guide for writing markdown slides"
-description = "A Hugo theme for creating Reveal.js presentations"
+title = "Infrastructures for the Edge-Cloud Continuum on a Small Scale: a Practical Case Study"
+description = "Infrastructures for the Edge-Cloud Continuum on a Small Scale: a Practical Case Study"
 outputs = ["Reveal"]
 aliases = [
     "/guide/"
@@ -10,17 +10,69 @@ aliases = [
 
 +++
 
+# Infrastructures for the
+# *Edge-Cloud Continuum*
+# on a **Small Scale**:
+# a Practical Case Study
 
-# Short guide to Markdown slides
+### [Martina Baiardi](https://www.unibo.it/sitoweb/m.baiardi/en), [Giovanni Ciatto](https://www.unibo.it/sitoweb/giovanni.ciatto/en), [*Danilo Pianini*](https://www.unibo.it/sitoweb/danilo.pianini/en)
 
 ---
 
-# Headers
+{{< slide background-image="https://github.com/DanySK/slides-2023-asmecc/assets/1991673/d73158e1-faf0-4681-94a0-115590bce133" >}}
 
-# H1
-## H2
-### H3
-#### H4
+---
+
+* 8th gen Intel Core i5, 8/16GB RAM, 1TB storage
+
+![](https://github.com/DanySK/slides-2023-asmecc/assets/1991673/d73158e1-faf0-4681-94a0-115590bce133)
+
+---
+
+## Multiple sources of inefficiency
+
+* Hardware cannot be used for **scopes** other than those for which it was *funded*
+  * Sounds reasonable, until you discover hundreds of unused systems left in a warehouse
+    * Bought for *teaching*, already *replaced* with more capable machinery
+* Groups **owning** hardware resources *hardly share*
+  * Several *compute servers* dramatically *underutilized*
+  * Not for lack of will!
+    * How do I *control access* to my hardware?
+    * How *expensive (in time and money)* is it to share?
+    * No *standardized procedure* to do so nimbly!
+* Hundreds of *decent lab PCs* dramatically *underutilized*
+  * Most get turned on in the morning and never shut down
+  * Most are *idle* most of the time
+  * They get turned off when the campus closes, but they could potentially still be useful...
+
+---
+
+The real issue with systems like this one (arguably, small scale) is
+
+## *RESOURCE COMPARTMENTALIZATION*
+
+* Systems are compartmentalized by *ownership*
+  * Different research groups
+  * Campus vs. department
+* Systems are compartmentalized by *scope*
+  * Teaching vs. research
+* Systems are compartmentalized by *type*
+  * Rack vs. desktop
+  * Operating system (<i class="fa-brands fa-linux"></i> vs. <i class="fa-brands fa-windows"></i> vs. <i class="fa-brands fa-apple"></i>)
+
+
+---
+
+![image](https://github.com/DanySK/slides-2023-asmecc/assets/1991673/906e14ef-e213-4dee-bc56-6d399a993567)
+
+(AI-generated)
+
+---
+
+## Tear down the wall:
+## small-scale edge-cloud continuum
+
+
 
 ---
 
@@ -256,7 +308,7 @@ Column 2
 
 Inline equations like $E=mc^2$
 
-$$\frac{n!}{k!(n-k)!} = \binom{n}{k}$$  
+$$\frac{n!}{k!(n-k)!} = \binom{n}{k}$$
 
 ---
 
@@ -269,9 +321,9 @@ val x = pippo
 
 ```go
 package main
- 
+
 import "fmt"
- 
+
 func main() {
     fmt.Println("Hello world!")
 }
@@ -290,7 +342,7 @@ Colons can be used to align columns.
 | zebra stripes | are neat      |    $1 |
 
 There must be at least 3 dashes separating each header cell.
-The outer pipes (|) are optional, and you don't need to make the 
+The outer pipes (|) are optional, and you don't need to make the
 raw Markdown line up prettily. You can also use inline Markdown.
 
 ---
@@ -391,7 +443,7 @@ classDiagram
 graph TD
   SL([fa:fa-user second level]) --> L[solution]
   L -- solution email --> db[(mysql)]
-  db --> X[automatic] 
+  db --> X[automatic]
   X --> CM([fa:fa-users first level])
   db -- Email --> c([customer support]);
 ```
