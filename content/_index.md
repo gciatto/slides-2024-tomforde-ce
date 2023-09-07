@@ -116,399 +116,185 @@ RBAC backed by a pre-existing central authority
 
 ---
 
-# Text
+## Process
 
-normal text
-
-`inline code`
-
-*italic*
-
-**bold**
-
-**_emphasized_**
-
-*__emphasized alternative__*
-
-~~strikethrough~~
-
-[link](http://www.google.com)
+1. **IaaS** infrastructure selection
+    1. Consider ease of *configuration*
+    1. Compute the *cost*
+    1. If needed, verify that the hardware *passthrough* is actually viable
+    1. Pick an *administration UI*
+1. Container **orchestrator** selection
+    1. Verify the installation and *configuration effort*
+    1. Evaluate the handyness of *task description languages*
+    1. If needed, verify that node-*tagging* mechanisms are in place to support peculiar hardware
+    1. Find a *UI* for the orchestrator
+1. Shared **Storage** configuration
+1. **Access control**
 
 ---
 
-# Lists and enums
+## Application
+### The [Alma Mater Research Institute for Human Centered Artificial Intelligence](https://centri.unibo.it/alma-ai/it)
+### Just **AlmaAI** for friends
 
-1. First ordered list item
-1. Another item
-    * Unordered sub-list.
-    * with two items
-        * another sublist
-            1. With a sub-enum
-            1. yay!
-1. Actual numbers don't matter, just that it's a number
-  1. Ordered sub-list
-1. And another item.
+#### Context
 
----
+* Multiple projects and research groups can
+* Hardware can be joined in or reserved for other uses at any time
 
-# Inline images
+#### Hardware
 
-![Alternative text](https://upload.wikimedia.org/wikipedia/it/6/6c/Scavolino_innevata.jpg)
+* Several compute servers (heavy-load CPU and a lot of memory)
+* Several GPU-equipped servers (NVIDIA Tesla A100)
+* 2 "inference servers" with custom NPU (Atlas 800-model 3010)
 
----
+#### Constraints
 
-## Fallback to shortcodes for resizing
-
-Autoresize specifying
-
-* `max-w` (percent of parent element width) and/or `max-h` (percent of viewport height) as max sizes , and
-* `width` and/or `height` as *exact* sizes (as percent of viewport size)
-
-{{< figure src="https://upload.wikimedia.org/wikipedia/it/6/6c/Scavolino_innevata.jpg" height="20">}}
+* The authentication infrastructure must use the current UniBo Active Directory
+* Re-training of the current IT personnel to be avoided
+    * Replacement of personnel that would need re-train is not an option either
+* One-command join and leave of hardware resources
 
 ---
 
-## Multi-column slide
+## 1. **IaaS** infrastructure selection
 
-{{% multicol %}}{{% col %}}
-Column 1
-{{% /col %}}{{% col %}}
-Column 2
-{{% /col %}}{{% /multicol %}}
+| | Bare Metal | VMWare VSphere | OpenStack |
+| --- | --- | --- | --- |
+| *configuration* | {{< tilde >}} low flexibility | {{< tick >}} | {{< cross >}} Non portable across hardware/OSs |
+| *license cost* | {{< tick >}} | {{< tilde >}} we had licenses | {{< tick >}} |
+| *training cost* | {{< tick >}} | {{< tilde >}} IT personnel pre-trained | {{< cross >}} |
+| *passthrough* | {{< tick >}} | {{< tilde >}} NPU not working | {{< tilde >}} NPU not working |
+| *admin UI* | {{< cross >}} | {{< tick >}} | {{< cross >}}  |
 
----
+**Decision**: Bare Metal for servers with NPU, VMWare Sphere otherwise
 
-## Tick and Cross
+#### *Driving factors*
+* Licenses already available due to a previous agreement with VMWare, pre-trained IT personnel
+* Need for a standard installation procedure
+* NPU support (favoring bare metal for inference servers)
 
-{{% tick %}} This is something good {{% /tick %}}
-{{% cross %}} This is something good {{% /cross %}}
-
----
-
-## Chart.js
-
-{{< chart >}}
-{
-    type: 'bar',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: 'Bar Chart',
-            data: [12, 19, 18, 16, 13, 14],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        maintainAspectRatio: false,
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
-    }
-}
-{{< /chart >}}
+#### *Risk analysis*
+* Vendor lock-in with VMWare.
+* Changes in the licensing model of VMWare Sphere may make the VMM not viable.
 
 ---
 
-## FontAwesome
+## 2. Container **orchestrator** selection
 
-<i class="fa-solid fa-mug-hot"></i>
-<i class="fa-solid fa-lemon"></i>
-<i class="fa-solid fa-flask"></i>
-<i class="fa-solid fa-apple-whole"></i>
-<i class="fa-solid fa-bacon"></i>
-<i class="fa-solid fa-beer-mug-empty"></i>
-<i class="fa-solid fa-pepper-hot"></i>
+| | Kubernetes | <i class="fa-brands fa-docker"></i> Docker Swarm |
+| --- | --- | --- |
+| *setup* | {{< tilde >}} `kubeadm`, `kubelet`, `kubectl`, `kube-proxy` | {{< tick >}} |
+| *language* | {{< tick >}} YAML | {{< tick >}} YAML |
+| *tagging* | {{< tick >}} | {{< tick >}} |
+| *admin UI* | {{< tilde >}} Third party | {{< tilde >}} Third party |
 
----
+**Decision**: <i class="fa-brands fa-docker"></i> Docker Swarm
 
-## Bootstrap 1
+#### *Driving factors*
+* Easier to setup
+* One-command join to the swarm
 
-<div class="card w-100" >
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/View_of_Cesena_from_the_Abbey.jpg/1920px-View_of_Cesena_from_the_Abbey.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
+#### *Risk analysis*
+* Less flexible than Kubernetes, could be an issue if the scale grows
 
 ---
 
-## Bootstrap 2
+## 2 bis. Container **orchestrator** admin UI
 
-<button type="button" class="btn btn-primary">Primary</button>
-<button type="button" class="btn btn-secondary">Secondary</button>
-<button type="button" class="btn btn-success">Success</button>
-<button type="button" class="btn btn-danger">Danger</button>
-<button type="button" class="btn btn-warning">Warning</button>
-<button type="button" class="btn btn-info">Info</button>
-<button type="button" class="btn btn-light">Light</button>
-<button type="button" class="btn btn-dark">Dark</button>
+| | Swarmpit | Kubernetes Dashboard | Portainer |
+| --- | --- | --- | --- |
+| *license cost* | {{< tick >}} | {{< tick >}} | {{< tilde >}} Freemium |
+| *support for Kubernetes* | {{< cross >}} | {{< tick >}} | {{< tick >}} |
+| *support for Docker Swarm* | {{< tick >}} | {{< cross >}} | {{< tick >}} |
+| *LDAP authentication* | {{< cross >}} [Feature requested](https://github.com/swarmpit/swarmpit/issues/329) | {{< tilde >}} Needs to bind Kubernetes to LDAP | {{< tick >}} |
 
-<button type="button" class="btn btn-link">Link</button>
+**Decision**: Portainer
 
----
+#### *Driving factors*
+* LDAP working out of the box with the free version
+* Supports both Kubernetes and Docker Swarm, in case a switch will be needed in the future
 
-## Low res, plain markdown
-
-![](https://upload.wikimedia.org/wikipedia/it/thumb/6/6c/Scavolino_innevata.jpg/260px-Scavolino_innevata.jpg)
-
----
-
-## Hi res, plain markdown
-
-![](https://upload.wikimedia.org/wikipedia/it/6/6c/Scavolino_innevata.jpg)
+#### *Risk analysis*
+* Changes in the free feature set may make the free version not viable
 
 ---
 
-## Low res, default
+## 3. Shared **storage**
 
-{{< figure src="https://upload.wikimedia.org/wikipedia/it/thumb/6/6c/Scavolino_innevata.jpg/260px-Scavolino_innevata.jpg" >}}
+{{% multicol %}}
 
----
+{{% col %}}
+#### **Federation**
 
-## Hi res, default
+Unification of multiple storage resources
+* *distributed* file system
+  * GlusterFS, HadoopFS, CEPH
+{{% /col %}}
 
-{{< figure src="https://upload.wikimedia.org/wikipedia/it/6/6c/Scavolino_innevata.jpg" >}}
+{{% col %}}
+#### **Distribution**
 
----
+Access remote file systems as if they were local
+* *remote* file system
+  * NFS, Samba, CIFS, iSCSI
+{{% /col %}}
 
-## Low res, enlarged horizontally
+{{% /multicol %}}
+**Decision**: NFS + GlusterFS
 
-{{< figure src="https://upload.wikimedia.org/wikipedia/it/thumb/6/6c/Scavolino_innevata.jpg/260px-Scavolino_innevata.jpg" width="100">}}
+#### *Driving factors*
+* Storage servers' resources must be distributed (NFS)
+* Smaller storage resources must get unified (GlusterFS)
 
----
-
-## Low res, enlarged vertically
-
-{{< figure src="https://upload.wikimedia.org/wikipedia/it/thumb/6/6c/Scavolino_innevata.jpg/260px-Scavolino_innevata.jpg" height="100">}}
-
----
-
-## Hi res, reduced horizontally
-
-{{< figure src="https://upload.wikimedia.org/wikipedia/it/6/6c/Scavolino_innevata.jpg" width="50">}}
-
----
-
-## Hi res, reduced vertically
-
-{{< figure src="https://upload.wikimedia.org/wikipedia/it/6/6c/Scavolino_innevata.jpg" height="50">}}
-
----
-
-## Hi res, reducing maximum expansion horizontally
-
-{{< figure src="https://upload.wikimedia.org/wikipedia/it/6/6c/Scavolino_innevata.jpg" width="50">}}
+#### *Risk analysis*
+* Disruption in a single node may make data (temporarily) disappear
+  * *Mitigation*: sharding or replication, at the price of worse latency
+* Container volumes may expose the underlying file system, breaking isolation (Docker Swarm only)
+  * *Mitigation*: a dedicated plugin for Docker is being built
+* Poor backup support (both Docker Swarm and Kubernetes)
+  * *Mitigation*: a dedicated plugin for Docker is being built
 
 ---
 
-## Hi res, reducing maximum expansion vertically
+## 4. **Access Control**
 
-{{< figure src="https://upload.wikimedia.org/wikipedia/it/6/6c/Scavolino_innevata.jpg" height="50">}}
+Authentication mechanisms already in place
+* Common situation
 
----
+* Available protocols: LDAP, Active Directory, Shibboleth, OAuth
 
-{{< slide background-image="https://upload.wikimedia.org/wikipedia/it/6/6c/Scavolino_innevata.jpg" >}}
+**Decision**: Small-scale ECC hid behind a VPN + LDAP
 
-# Large images as background
-## (May affect printing)
+#### *Driving factors*
+* It is the only protocol supported by Portainer in the free version
 
----
-
-{{< slide background-image="https://upload.wikimedia.org/wikipedia/it/6/6c/Scavolino_innevata.jpg" state="blur-animation-light"  transition="fade-in fade-out" >}}
-
-# Also available with blur and custom transitions
-## (May affect printing)
+#### *Risk analysis*
+* VPN-ification may not be viable in some contexts
 
 ---
 
-# $$\LaTeX{}$$
+## Conclusion
 
+* The ECC paradigm is *viable even at a small scale*
+* ECC in the small can help with *underutilized hardware* resources
+* Technical challenges are mixed with *organizational* ones
+* Factors to take into account include *hidden costs*
+  * Adopting a FOSS solution may be ideal, but the IT personnel must be *trained*
+    * Also people may be reluctant to adopt something they don't know
+  * Proprietary solutions are at a risk of *vendor lock-in*
 
-Inline equations like $E=mc^2$
+### In this work
 
-$$\frac{n!}{k!(n-k)!} = \binom{n}{k}$$
+* A possibile architecture for a small-scale ECC
+* An actionable decision taking process to build it
+* An example of the infrastructure being built
 
----
+### Future work
 
-# Code snippets
-
-
-```kotlin
-val x = pippo
-```
-
-```go
-package main
-
-import "fmt"
-
-func main() {
-    fmt.Println("Hello world!")
-}
-```
+* Docker plugins for backup and file system isolation
+* Incorporation of wake-on-lan for on-demand usage of unused lab desktops
 
 ---
 
-# Tables
-
-Colons can be used to align columns.
-
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
-
-There must be at least 3 dashes separating each header cell.
-The outer pipes (|) are optional, and you don't need to make the
-raw Markdown line up prettily. You can also use inline Markdown.
-
----
-
-# Quotes
-
-> Multiple
-> lines
-> of
-> a
-> single
-> quote
-> get
-> joined
-
-> Very long one liners of Markdown text automatically get broken into a multiline quotation, which is then rendered in the slides.
-
----
-
-# Fragments
-
-* {{< frag c="pluto" >}}
-* {{< frag c="pluto" >}}
-* {{< frag c="pluto" >}}
-
----
-
-# Graphs via Gravizo
-
-{{< gravizo "Example Gravizo graph" >}}
-  digraph G {
-    aize ="4,4";
-    main [shape=box];
-    main -> parse [weight=8];
-    parse -> execute;
-    main -> init [style=dotted];
-    main -> cleanup;
-    execute -> { make_string; printf}
-    init -> make_string;
-    edge [color=red];
-    main -> printf [style=bold,label="100 times"];
-    make_string [label="make a string"];
-    node [shape=box,style=filled,color=".7 .3 1.0"];
-    execute -> compare;
-  }
-{{< /gravizo >}}
-
----
-
-# Graphs via mermaid.js
-
-```mermaid
-classDiagram
-  Class01 <|-- AveryLongClass : Coosssl
-  Class03 *-- Class04
-  Class05 o-- Class06
-  Class07 .. Class08
-  Class09 --> C2 : Where am i?
-  Class09 --* C3
-  Class09 --|> Class07
-  Class07 : equals()
-  Class07 : Object[] elementData
-  Class01 : size()
-  Class01 : int chimp
-  Class01 : int gorillasaaaaaaaaaaaaaaaaaaaaaa
-  Class08 <--> C2: Cool label
-```
-
-
----
-
-
-# Graphs via mermaid.js with options
-
-```mermaid
-%%{init: {'theme':'default', 'themeVariables': { 'fontSize': '.34em', 'fontFamily': 'verdana' }}}%%
-classDiagram
-  Class01 <|-- AveryLongClass : Coosssl
-  Class03 *-- Class04
-  Class05 o-- Class06
-  Class07 .. Class08
-  Class09 --> C2 : Where am i?
-  Class09 --* C3
-  Class09 --|> Class07
-  Class07 : equals()
-  Class07 : Object[] elementData
-  Class01 : size()
-  Class01 : int chimp
-  Class01 : int gorillasaaaaaaaaaaaaaaaaaaaaaa
-  Class08 <--> C2: Cool label
-```
-
-
----
-# Graphs via mermaid.js 2
-
-```mermaid
-graph TD
-  SL([fa:fa-user second level]) --> L[solution]
-  L -- solution email --> db[(mysql)]
-  db --> X[automatic]
-  X --> CM([fa:fa-users first level])
-  db -- Email --> c([customer support]);
-```
-
----
-
-# Graphs via mermaid.js 3
-
-```mermaid
-gitGraph
-  commit id: "Initialize project"
-  commit id: "Make some changes"
-  branch develop
-  checkout develop
-  commit
-  commit
-  checkout main
-  merge develop
-  commit
-  commit
-```
-
----
-
-# Import of shared slides
-
-{{% import path="shared-slides/devops/devops-intro.md" %}}
-
+**and, by the way, the ACSOS 2023 Telegram bot is actually running on the infrastructure we just described**
