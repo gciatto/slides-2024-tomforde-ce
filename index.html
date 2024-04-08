@@ -1,0 +1,677 @@
+<!DOCTYPE html><html lang="en"><head>
+	<meta name="generator" content="Hugo 0.119.0">
+    <meta charset="utf-8">
+<title>Amatorial Private Cloud for Busy Scholars</title>
+<meta name="description" content="Amatorial Private Cloud for Lazy Scholars">
+<meta name="author" content="Danilo Pianini">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><link rel="stylesheet" href="/slides-2023-asmecc/reveal-js/dist/reset.css">
+<link rel="stylesheet" href="/slides-2023-asmecc/reveal-js/dist/reveal.css">
+  <link rel="stylesheet" href="/slides-2023-asmecc/css/custom-theme.min.ea34f0536456fd86e15cbadc5b9d0e81f71f1a4be12d3ea817b6f45cad0b0fc3.css" id="theme"><link rel="stylesheet" href="/slides-2023-asmecc/highlight-js/solarized-dark.min.css">
+<link rel="stylesheet" href="https://gitcdn.link/repo/DanySK/css-blur-animation/master/blur.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Oxygen Mono" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu Mono" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<script src="https://kit.fontawesome.com/81ac037be0.js" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+    
+    <div class="reveal">
+      <div class="slides">
+  
+
+    <section><h1 id="amatorial-private-cloud-for-br-slazys-busy-scholars">Amatorial Private Cloud for <br> <s>Lazy</s> Busy Scholars</h1>
+<h3 id="giovanni-ciattohttpswwwuniboitsitowebgiovanniciattoen"><a href="https://www.unibo.it/sitoweb/giovanni.ciatto/en">Giovanni Ciatto</a></h3>
+<p>(material from <a href="https://doi.org/10.1109/ACSOS-C58168.2023.00052">https://doi.org/10.1109/ACSOS-C58168.2023.00052</a>)</p>
+</section><section>
+
+
+<section data-shortcode-section="">
+<h2 id="about-me-pt-1">About me (pt. 1)</h2>
+<h3 id="overview">Overview</h3>
+<ul>
+<li>
+<p><strong>Name</strong>: <em>Giovanni Ciatto</em></p>
+</li>
+<li>
+<p><strong>Role</strong>: Junior <em>Assistant Professor</em> at DISI/UniBO since 2023</p>
+</li>
+<li>
+<p><strong>Education</strong>: <em>PhD</em> in Data Science (2022), <em>MSc</em> in Computer Science (2017), <em>BSc</em> in Computer Engineering (2014), all of them at UniBO, in Cesena, Italy</p>
+</li>
+<li>
+<p><strong>Profiles</strong>: <a href="https://scholar.google.it/citations?hl=it&amp;pli=1&amp;user=pLlROlkAAAAJ">Scholar</a>, <a href="https://github.com/gciatto">GitHub</a>, <a href="https://orcid.org/0000-0002-1841-8996">ORCID</a>, <a href="https://www.unibo.it/sitoweb/giovanni.ciatto/en">UniBO</a></p>
+</li>
+</ul>
+</section><section>
+<h2 id="about-me-pt-2">About me (pt. 2)</h2>
+<h3 id="relevant-academic-activities">Relevant academic activities</h3>
+<ol>
+<li>
+<p><strong>Technical coordinator</strong> and <strong>WP leader</strong> in the Horizon EU project <a href="https://www.aequitas-project.eu/">AEQUITAS</a> (G.A. <a href="https://doi.org/10.3030/101070363">101070363</a>)</p>
+<ul>
+<li>AEQUITAS $\equiv$ *Assessment and <em>E</em>ngineering of <em>Eq</em>uitable, <em>U</em>nbiased, <em>I</em>mpartial and <em>T</em>rustworthy <em>A</em>I <em>S</em>ystems</li>
+</ul>
+</li>
+<li>
+<p><strong>WP leader</strong> in the <a href="https://www.chistera.eu/projects-call-2019">CHIST-ERA IV</a> project <a href="https://expectation.ehealth.hevs.ch">EXPECTATION</a></p>
+<ul>
+<li>EXPECTATION $\equiv$ Personalized Explainable Artificial Intelligence for decentralized agents with heterogeneous knowledge</li>
+</ul>
+</li>
+<li>
+<p><strong>Teacher</strong> in several <em>master</em> courses concerning software engineering, artificial intelligence, and distributed systems</p>
+<ul>
+<li><a href="https://www.unibo.it/en/study/phd-professional-masters-specialisation-schools-and-other-programmes/course-unit-catalogue/course-unit/2023/466765">Software Engineering</a></li>
+<li><a href="https://www.unibo.it/en/study/phd-professional-masters-specialisation-schools-and-other-programmes/course-unit-catalogue/course-unit/2023/493397">Distributed Systems (Module 2)</a></li>
+<li><a href="https://www.unibo.it/en/study/phd-professional-masters-specialisation-schools-and-other-programmes/course-unit-catalogue/course-unit/2023/455810">Intelligent Systems Engineering (Module 2)</a></li>
+<li><a href="https://www.unibo.it/en/study/phd-professional-masters-specialisation-schools-and-other-programmes/course-unit-catalogue/course-unit/2023/483714">Software Process Engineering (Module 2)</a></li>
+</ul>
+</li>
+</ol>
+</section><section>
+<h2 id="about-me-pt-3">About me (pt. 3)</h2>
+<h3 id="research-interests">Research interests</h3>
+<ol>
+<li>
+<p><strong>Multi-Agent Systems</strong> and <strong>Agent-Oriented Programming</strong></p>
+<ul>
+<li>cf. Martina’s presentation</li>
+<li>recent relevant papers: <a href="https://doi.org/10.1007/s10458-020-09478-3">doi:10.1007/s10458-020-09478-3</a>, <a href="https://link.springer.com/chapter/10.1007/978-3-031-43264-4_4">doi:10.1007/978-3-031-43264-4_4</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Distributed Systems</strong></p>
+<ul>
+<li>cf. this presentation</li>
+<li>recent relevant papers: <a href="https://doi.org/10.1109/ACSOS-C58168.2023.00052">doi:10.1109/ACSOS-C58168.2023.00052</a>, <a href="https://doi.org/10.1109/ICCCN.2019.8846916">doi:10.1109/ICCCN.2019.8846916</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Artificial Intelligence</strong> and <strong>Machine Learning</strong></p>
+<ul>
+<li>cf. the AEQUITAS project</li>
+<li>recent relevant papers: <a href="https://doi.org/10.1145/3645103">doi:10.1145/3645103</a>, <a href="https://arxiv.org/abs/2404.04108">abs/2404.04108</a></li>
+</ul>
+</li>
+<li>
+<p><strong>eXplainable AI</strong> (XAI)</p>
+<ul>
+<li>cf. the EXPECTATION project</li>
+<li>recent relevant papers: <a href="https://doi.org/10.1016/j.cmpb.2023.107536">doi:10.1016/j.cmpb.2023.107536</a>, <a href="https://doi.org/10.1007/978-3-031-40878-6_3">doi:10.1007/978-3-031-40878-6_3</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Logic Programming</strong></p>
+<ul>
+<li>recent relevant papers: <a href="https://doi.org/10.1017/S1471068422000102">doi:10.1017/S1471068422000102</a>, <a href="https://doi.org/10.1016/j.softx.2021.100817">doi:10.1016/j.softx.2021.100817</a></li>
+</ul>
+</li>
+</ol>
+
+</section>
+</section>
+
+<section data-noprocess="" data-shortcode-slide="" data-background-image="https://github.com/DanySK/slides-2023-asmecc/assets/1991673/d73158e1-faf0-4681-94a0-115590bce133">
+  
+</section><section>
+<ul>
+<li>8th gen Intel Core i5, 8/16GB RAM, 1TB storage</li>
+</ul>
+<p><img src="https://github.com/DanySK/slides-2023-asmecc/assets/1991673/d73158e1-faf0-4681-94a0-115590bce133" alt=""></p>
+</section><section>
+<h2 id="multiple-sources-of-inefficiency">Multiple sources of inefficiency</h2>
+<ul>
+<li>Hardware cannot be used for <strong>scopes</strong> other than those for which it was <em>funded</em>
+<ul>
+<li>Sounds reasonable, until you discover hundreds of unused systems left in a warehouse
+<ul>
+<li>Bought for <em>teaching</em>, already <em>replaced</em> with more capable machinery</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Groups <strong>owning</strong> hardware resources <em>hardly share</em>
+<ul>
+<li>Several <em>compute servers</em> dramatically <em>underutilized</em></li>
+<li>Not for lack of will!
+<ul>
+<li>How do I <em>control access</em> to my hardware?</li>
+<li>How <em>expensive (in time and money)</em> is it to share?</li>
+<li>No <em>standardized procedure</em> to do so nimbly!</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Hundreds of <em>decent lab PCs</em> dramatically <em>underutilized</em>
+<ul>
+<li>Most get turned on in the morning and never shut down</li>
+<li>Most are <em>idle</em> most of the time</li>
+<li>They get turned off when the campus closes, but they could potentially still be useful…</li>
+</ul>
+</li>
+</ul>
+</section><section>
+<p>The real issue with systems like this one (arguably, small scale) is</p>
+<h2 id="resource-compartmentalization"><em>RESOURCE COMPARTMENTALIZATION</em></h2>
+<ul>
+<li>Systems are compartmentalized by <em>ownership</em>
+<ul>
+<li>Different research groups</li>
+<li>Campus vs. department</li>
+</ul>
+</li>
+<li>Systems are compartmentalized by <em>scope</em>
+<ul>
+<li>Teaching vs. research</li>
+</ul>
+</li>
+<li>Systems are compartmentalized by <em>type</em>
+<ul>
+<li>Rack vs. desktop</li>
+<li>Operating system (<i class="fa-brands fa-linux"></i> vs. <i class="fa-brands fa-windows"></i> vs. <i class="fa-brands fa-apple"></i>)</li>
+</ul>
+</li>
+</ul>
+</section><section>
+<p><img src="https://github.com/DanySK/slides-2023-asmecc/assets/1991673/906e14ef-e213-4dee-bc56-6d399a993567" alt="image"></p>
+<p>(AI-generated)</p>
+</section><section>
+<h2 id="tear-down-the-wall">Tear down the wall:</h2>
+<h2 id="small-scale-edge-cloud-continuum">small-scale edge-cloud continuum</h2>
+<h3 id="desiderata"><strong>Desiderata</strong></h3>
+<ul>
+<li><em>Runtime addition and removal</em> of hardware resources</li>
+<li><em>Heterogeneous</em> hardware resources</li>
+<li>(Relative) ease of use: people with <em>no system-level knowledge</em> should be able to use it</li>
+<li>Capability to host <em>long-lived</em> services and execute <em>short-lived</em> jobs</li>
+<li>Integration with the <em>existing authentication and authorization</em> infrastructure</li>
+</ul>
+</section><section>
+<h2 id="problem-model">Problem model</h2>
+<h4 id="roles">Roles</h4>
+<p><em>student</em>, <em>researcher</em>, <em>IT Personnel</em></p>
+<ul>
+<li>They differ by the kinds of resources that should be able to access</li>
+<li>Different contexts may require different roles, but the right management should be similar<br>
+(unless the scale grows signficantly)</li>
+</ul>
+<h4 id="workloads">Workloads</h4>
+<p><em>jobs</em> (short-lived), <em>services</em> (long-lived)</p>
+<h4 id="capabilities-and-constraints">Capabilities and constraints</h4>
+<p>workloads must be able to <em>constrain</em> their execution to nodes with specific <em>capabilities</em>, e.g.:<br>
+GPU or FPGA (hardware), specific OS, specific runtime (e.g., the JVM, or the CLR)</p>
+<h4 id="isolation">Isolation</h4>
+<p>Different workloads $\to$ different constraints $\to$ isolation at multiple levels</p>
+<h4 id="access-control">access control</h4>
+<p>RBAC backed by a pre-existing central authority</p>
+</section><section>
+<h2 id="architecture">Architecture</h2>
+<p><img src="architecture.png" alt="architecture"></p>
+</section><section>
+<h2 id="process">Process</h2>
+<ol>
+<li><strong>IaaS</strong> infrastructure selection
+<ol>
+<li>Consider ease of <em>configuration</em></li>
+<li>Compute the <em>cost</em></li>
+<li>If needed, verify that the hardware <em>passthrough</em> is actually viable</li>
+<li>Pick an <em>administration UI</em></li>
+</ol>
+</li>
+<li>Container <strong>orchestrator</strong> selection
+<ol>
+<li>Verify the installation and <em>configuration effort</em></li>
+<li>Evaluate the handyness of <em>task description languages</em></li>
+<li>If needed, verify that node-<em>tagging</em> mechanisms are in place to support peculiar hardware</li>
+<li>Find a <em>UI</em> for the orchestrator</li>
+</ol>
+</li>
+<li>Shared <strong>Storage</strong> configuration</li>
+<li><strong>Access control</strong></li>
+</ol>
+</section><section>
+<h2 id="application">Application</h2>
+<h3 id="the-alma-mater-research-institute-for-human-centered-artificial-intelligencehttpscentriuniboitalma-aiit">The <a href="https://centri.unibo.it/alma-ai/it">Alma Mater Research Institute for Human Centered Artificial Intelligence</a></h3>
+<h3 id="just-almaai-for-friends">Just <strong>AlmaAI</strong> for friends</h3>
+<h4 id="context">Context</h4>
+<ul>
+<li>Multiple projects and research groups can</li>
+<li>Hardware can be joined in or reserved for other uses at any time</li>
+</ul>
+<h4 id="hardware">Hardware</h4>
+<ul>
+<li>Several compute servers (heavy-load CPU and a lot of memory)</li>
+<li>Several GPU-equipped servers (NVIDIA Tesla A100)</li>
+<li>2 “inference servers” with custom NPU (Atlas 800-model 3010)</li>
+</ul>
+<h4 id="constraints">Constraints</h4>
+<ul>
+<li>The authentication infrastructure must use the current UniBo Active Directory</li>
+<li>Re-training of the current IT personnel to be avoided
+<ul>
+<li>Replacement of personnel that would need re-train is not an option either</li>
+</ul>
+</li>
+<li>One-command join and leave of hardware resources</li>
+</ul>
+</section><section>
+<h2 id="1-iaas-infrastructure-selection">1. <strong>IaaS</strong> infrastructure selection</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Bare Metal</th>
+<th>VMWare VSphere</th>
+<th>OpenStack</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>configuration</em></td>
+<td><i class="fa-solid fa-bars" style="color: orange;"></i>
+ low flexibility</td>
+<td><i class="fa-solid fa-check" style="color: green;"></i>
+</td>
+<td><i class="fa-solid fa-xmark" style="color: red;"></i>
+ Non portable across hardware/OSs</td>
+</tr>
+<tr>
+<td><em>license cost</em></td>
+<td><i class="fa-solid fa-check" style="color: green;"></i>
+</td>
+<td><i class="fa-solid fa-bars" style="color: orange;"></i>
+ we had licenses</td>
+<td><i class="fa-solid fa-check" style="color: green;"></i>
+</td>
+</tr>
+<tr>
+<td><em>training cost</em></td>
+<td><i class="fa-solid fa-check" style="color: green;"></i>
+</td>
+<td><i class="fa-solid fa-bars" style="color: orange;"></i>
+ IT personnel pre-trained</td>
+<td><i class="fa-solid fa-xmark" style="color: red;"></i>
+</td>
+</tr>
+<tr>
+<td><em>passthrough</em></td>
+<td><i class="fa-solid fa-check" style="color: green;"></i>
+</td>
+<td><i class="fa-solid fa-bars" style="color: orange;"></i>
+ NPU not working</td>
+<td><i class="fa-solid fa-bars" style="color: orange;"></i>
+ NPU not working</td>
+</tr>
+<tr>
+<td><em>admin UI</em></td>
+<td><i class="fa-solid fa-xmark" style="color: red;"></i>
+</td>
+<td><i class="fa-solid fa-check" style="color: green;"></i>
+</td>
+<td><i class="fa-solid fa-xmark" style="color: red;"></i>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Decision</strong>: Bare Metal for servers with NPU, VMWare Sphere otherwise</p>
+<h4 id="driving-factors"><em>Driving factors</em></h4>
+<ul>
+<li>Licenses already available due to a previous agreement with VMWare, pre-trained IT personnel</li>
+<li>Need for a standard installation procedure</li>
+<li>NPU support (favoring bare metal for inference servers)</li>
+</ul>
+<h4 id="risk-analysis"><em>Risk analysis</em></h4>
+<ul>
+<li>Vendor lock-in with VMWare.</li>
+<li>Changes in the licensing model of VMWare Sphere may make the VMM not viable.</li>
+</ul>
+</section><section>
+<h2 id="2-container-orchestrator-selection">2. Container <strong>orchestrator</strong> selection</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Kubernetes</th>
+<th><i class="fa-brands fa-docker"></i> Docker Swarm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>setup</em></td>
+<td><i class="fa-solid fa-bars" style="color: orange;"></i>
+ <code>kubeadm</code>, <code>kubelet</code>, <code>kubectl</code>, <code>kube-proxy</code></td>
+<td><i class="fa-solid fa-check" style="color: green;"></i>
+</td>
+</tr>
+<tr>
+<td><em>language</em></td>
+<td><i class="fa-solid fa-check" style="color: green;"></i>
+ YAML</td>
+<td><i class="fa-solid fa-check" style="color: green;"></i>
+ YAML</td>
+</tr>
+<tr>
+<td><em>tagging</em></td>
+<td><i class="fa-solid fa-check" style="color: green;"></i>
+</td>
+<td><i class="fa-solid fa-check" style="color: green;"></i>
+</td>
+</tr>
+<tr>
+<td><em>admin UI</em></td>
+<td><i class="fa-solid fa-bars" style="color: orange;"></i>
+ Third party</td>
+<td><i class="fa-solid fa-bars" style="color: orange;"></i>
+ Third party</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Decision</strong>: <i class="fa-brands fa-docker"></i> Docker Swarm</p>
+<h4 id="driving-factors-1"><em>Driving factors</em></h4>
+<ul>
+<li>Easier to setup</li>
+<li>One-command join to the swarm</li>
+</ul>
+<h4 id="risk-analysis-1"><em>Risk analysis</em></h4>
+<ul>
+<li>Less flexible than Kubernetes, could be an issue if the scale grows</li>
+</ul>
+</section><section>
+<h2 id="2-bis-container-orchestrator-admin-ui">2 bis. Container <strong>orchestrator</strong> admin UI</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Swarmpit</th>
+<th>Kubernetes Dashboard</th>
+<th>Portainer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>license cost</em></td>
+<td><i class="fa-solid fa-check" style="color: green;"></i>
+</td>
+<td><i class="fa-solid fa-check" style="color: green;"></i>
+</td>
+<td><i class="fa-solid fa-bars" style="color: orange;"></i>
+ Freemium</td>
+</tr>
+<tr>
+<td><em>support for Kubernetes</em></td>
+<td><i class="fa-solid fa-xmark" style="color: red;"></i>
+</td>
+<td><i class="fa-solid fa-check" style="color: green;"></i>
+</td>
+<td><i class="fa-solid fa-check" style="color: green;"></i>
+</td>
+</tr>
+<tr>
+<td><em>support for Docker Swarm</em></td>
+<td><i class="fa-solid fa-check" style="color: green;"></i>
+</td>
+<td><i class="fa-solid fa-xmark" style="color: red;"></i>
+</td>
+<td><i class="fa-solid fa-check" style="color: green;"></i>
+</td>
+</tr>
+<tr>
+<td><em>LDAP authentication</em></td>
+<td><i class="fa-solid fa-xmark" style="color: red;"></i>
+ <a href="https://github.com/swarmpit/swarmpit/issues/329">Feature requested</a></td>
+<td><i class="fa-solid fa-bars" style="color: orange;"></i>
+ Needs to bind Kubernetes to LDAP</td>
+<td><i class="fa-solid fa-check" style="color: green;"></i>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Decision</strong>: Portainer</p>
+<h4 id="driving-factors-2"><em>Driving factors</em></h4>
+<ul>
+<li>LDAP working out of the box with the free version</li>
+<li>Supports both Kubernetes and Docker Swarm, in case a switch will be needed in the future</li>
+</ul>
+<h4 id="risk-analysis-2"><em>Risk analysis</em></h4>
+<ul>
+<li>Changes in the free feature set may make the free version not viable</li>
+</ul>
+</section><section>
+<h2 id="3-shared-storage">3. Shared <strong>storage</strong></h2>
+<p>
+</p><div class="container w-100 m-0 p-0">
+    <div class="row "><div class="col "><h4 id="federation"><strong>Federation</strong></h4>
+<p>Unification of multiple storage resources</p>
+<ul>
+<li><em>distributed</em> file system
+<ul>
+<li>GlusterFS, HadoopFS, CEPH</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="col "><h4 id="distribution"><strong>Distribution</strong></h4>
+<p>Access remote file systems as if they were local</p>
+<ul>
+<li><em>remote</em> file system
+<ul>
+<li>NFS, Samba, CIFS, iSCSI</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<strong>Decision</strong>: NFS + GlusterFS<p></p>
+<h4 id="driving-factors-3"><em>Driving factors</em></h4>
+<ul>
+<li>Storage servers’ resources must be distributed (NFS)</li>
+<li>Smaller storage resources must get unified (GlusterFS)</li>
+</ul>
+<h4 id="risk-analysis-3"><em>Risk analysis</em></h4>
+<ul>
+<li>Disruption in a single node may make data (temporarily) disappear
+<ul>
+<li><em>Mitigation</em>: sharding or replication, at the price of worse latency</li>
+</ul>
+</li>
+<li>Container volumes may expose the underlying file system, breaking isolation (Docker Swarm only)
+<ul>
+<li><em>Mitigation</em>: a dedicated plugin for Docker is being built</li>
+</ul>
+</li>
+<li>Poor backup support (both Docker Swarm and Kubernetes)
+<ul>
+<li><em>Mitigation</em>: a dedicated plugin for Docker is being built</li>
+</ul>
+</li>
+</ul>
+</section><section>
+<h2 id="4-access-control">4. <strong>Access Control</strong></h2>
+<p>Authentication mechanisms already in place</p>
+<ul>
+<li>
+<p>Common situation</p>
+</li>
+<li>
+<p>Available protocols: LDAP, Active Directory, Shibboleth, OAuth</p>
+</li>
+</ul>
+<p><strong>Decision</strong>: Small-scale ECC hid behind a VPN + LDAP</p>
+<h4 id="driving-factors-4"><em>Driving factors</em></h4>
+<ul>
+<li>It is the only protocol supported by Portainer in the free version</li>
+</ul>
+<h4 id="risk-analysis-4"><em>Risk analysis</em></h4>
+<ul>
+<li>VPN-ification may not be viable in some contexts</li>
+</ul>
+</section><section>
+<h2 id="conclusion">Conclusion</h2>
+<ul>
+<li>The ECC paradigm is <em>viable even at a small scale</em></li>
+<li>ECC in the small can help with <em>underutilized hardware</em> resources</li>
+<li>Technical challenges are mixed with <em>organizational</em> ones</li>
+<li>Factors to take into account include <em>hidden costs</em>
+<ul>
+<li>Adopting a FOSS solution may be ideal, but the IT personnel must be <em>trained</em>
+<ul>
+<li>Also people may be reluctant to adopt something they don’t know</li>
+</ul>
+</li>
+<li>Proprietary solutions are at a risk of <em>vendor lock-in</em></li>
+</ul>
+</li>
+</ul>
+<h3 id="in-this-work">In this work</h3>
+<ul>
+<li>A possibile architecture for a small-scale ECC</li>
+<li>An actionable decision taking process to build it</li>
+<li>An example of the infrastructure being built</li>
+</ul>
+<h3 id="future-work">Future work</h3>
+<ul>
+<li>Docker plugins for backup and file system isolation</li>
+<li>Incorporation of wake-on-lan for on-demand usage of unused lab desktops</li>
+</ul>
+</section><section>
+<p><strong>and, by the way, the ACSOS 2023 Telegram bot is actually running on the infrastructure we just described</strong></p>
+</section>
+
+  
+
+
+</div>
+      
+
+    </div>
+<script type="text/javascript" src="/slides-2023-asmecc/reveal-hugo/object-assign.js"></script>
+
+<a href="/slides-2023-asmecc/reveal-js/dist/print/" id="print-location" style="display: none;"></a>
+
+<script type="application/json" id="reveal-hugo-site-params">{"custom_theme":"custom-theme.scss","custom_theme_compile":true,"custom_theme_options":{"enablesourcemap":true,"targetpath":"css/custom-theme.css"},"height":"900","highlight_theme":"solarized-dark","history":true,"mermaid":[{}],"slide_number":true,"theme":"league","transition":"slide","transition_speed":"fast","width":"1440"}</script>
+<script type="application/json" id="reveal-hugo-page-params">null</script>
+
+<script src="/slides-2023-asmecc/reveal-js/dist/reveal.js"></script>
+
+
+  
+  
+  <script type="text/javascript" src="/slides-2023-asmecc/reveal-js/plugin/markdown/markdown.js"></script>
+  
+  <script type="text/javascript" src="/slides-2023-asmecc/reveal-js/plugin/highlight/highlight.js"></script>
+  
+  <script type="text/javascript" src="/slides-2023-asmecc/reveal-js/plugin/zoom/zoom.js"></script>
+  
+  <script type="text/javascript" src="/slides-2023-asmecc/reveal-js/plugin/notes/notes.js"></script>
+  
+  
+  <script type="text/javascript" src="/slides-2023-asmecc/reveal-js/plugin/notes/notes.js"></script>
+
+
+
+
+<script type="text/javascript">
+  
+  
+  function camelize(map) {
+    if (map) {
+      Object.keys(map).forEach(function(k) {
+        newK = k.replace(/(\_\w)/g, function(m) { return m[1].toUpperCase() });
+        if (newK != k) {
+          map[newK] = map[k];
+          delete map[k];
+        }
+      });
+    }
+    return map;
+  }
+
+  var revealHugoDefaults = { center: true, controls: true, history: true, progress: true, transition: "slide" };
+
+  var revealHugoPlugins = { 
+    plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ]
+   };
+  var revealHugoSiteParams = JSON.parse(document.getElementById('reveal-hugo-site-params').innerHTML);
+  var revealHugoPageParams = JSON.parse(document.getElementById('reveal-hugo-page-params').innerHTML);
+  
+  var options = Object.assign({},
+    camelize(revealHugoDefaults),
+    camelize(revealHugoSiteParams),
+    camelize(revealHugoPageParams),
+    camelize(revealHugoPlugins));
+  Reveal.initialize(options);
+</script>
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+</script>
+
+<script type="text/javascript" id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+<script>
+  if (/.*?(\?|&)print-pdf/.test(window.location.toString())) {
+      var ytVideos = document.getElementsByTagName("iframe")
+      for (let i = 0; i < ytVideos.length; i++) {
+          var videoFrame = ytVideos[i]
+          var isYouTube = /^https?:\/\/(www.)youtube\.com\/.*/.test(videoFrame.src)
+          if (isYouTube) {
+              console.log(`Removing ${videoFrame.src}`)
+              var parent = videoFrame.parentElement
+              videoFrame.remove()
+              var p = document.createElement('p')
+              p.append(
+                  document.createTextNode(
+                      "There was an embedded video here, but it is disabled in the printed version of the slides."
+                  )
+              )
+              p.append(document.createElement('br'))
+              p.append(
+                  document.createTextNode(
+                      `Visit instead ${
+                          videoFrame.src
+                      } or ${
+                          videoFrame.src.replace(
+                              /(^https?:\/\/(www.)youtube\.com)\/(embed\/)(\w+).*/,
+                              "https://www.youtube.com/watch?v=$4"
+                          )
+                      }`
+                  )
+              )
+              parent.appendChild(p)
+          }
+      }
+  }
+</script>
+
+
+    
+  
+
+</body></html>
