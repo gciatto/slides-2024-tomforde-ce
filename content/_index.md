@@ -1,21 +1,82 @@
 
 +++
 
-title = "Infrastructures for the Edge-Cloud Continuum on a Small Scale: a Practical Case Study"
-description = "Infrastructures for the Edge-Cloud Continuum on a Small Scale: a Practical Case Study"
+title = "Amatorial Private Cloud for Busy Scholars"
+description = "Amatorial Private Cloud for Lazy Scholars"
 outputs = ["Reveal"]
 aliases = [
-    "/guide/"
+    "/slides/"
 ]
 
 +++
 
-# Infrastructures for the
-# *Edge-Cloud Continuum*
-# on a **Small Scale**:
-# a Practical Case Study
+# Amatorial Private Cloud for <br> <s>Lazy</s> Busy Scholars
 
-### [Martina Baiardi](https://www.unibo.it/sitoweb/m.baiardi/en), [Giovanni Ciatto](https://www.unibo.it/sitoweb/giovanni.ciatto/en), [*Danilo Pianini*](https://www.unibo.it/sitoweb/danilo.pianini/en)
+### [Giovanni Ciatto](https://www.unibo.it/sitoweb/giovanni.ciatto/en)
+
+(material from <https://doi.org/10.1109/ACSOS-C58168.2023.00052>)
+
+---
+
+{{% section %}}
+
+## About me (pt. 1)
+
+### Overview
+
+- __Name__: _Giovanni Ciatto_
+
+- __Role__: Junior _Assistant Professor_ at DISI/UniBO since 2023
+
+- __Education__: _PhD_ in Data Science (2022), _MSc_ in Computer Science (2017), _BSc_ in Computer Engineering (2014), all of them at UniBO, in Cesena, Italy
+
+- __Profiles__: [Scholar](https://scholar.google.it/citations?hl=it&pli=1&user=pLlROlkAAAAJ), [GitHub](https://github.com/gciatto), [ORCID](https://orcid.org/0000-0002-1841-8996), [UniBO](https://www.unibo.it/sitoweb/giovanni.ciatto/en)
+
+---
+
+## About me (pt. 2)
+
+### Relevant academic activities
+
+1. __Technical coordinator__ and __WP leader__ in the Horizon EU project [AEQUITAS](https://www.aequitas-project.eu/) (G.A. [101070363](https://doi.org/10.3030/101070363))
+    * AEQUITAS $\equiv$ *Assessment and *E*ngineering of *Eq*uitable, *U*nbiased, *I*mpartial and *T*rustworthy *A*I *S*ystems
+
+
+2. __WP leader__ in the [CHIST-ERA IV](https://www.chistera.eu/projects-call-2019) project [EXPECTATION](https://expectation.ehealth.hevs.ch)
+    * EXPECTATION $\equiv$ Personalized Explainable Artificial Intelligence for decentralized agents with heterogeneous knowledge
+
+3. __Teacher__ in several _master_ courses concerning software engineering, artificial intelligence, and distributed systems
+    * [Software Engineering](https://www.unibo.it/en/study/phd-professional-masters-specialisation-schools-and-other-programmes/course-unit-catalogue/course-unit/2023/466765)
+    * [Distributed Systems (Module 2)](https://www.unibo.it/en/study/phd-professional-masters-specialisation-schools-and-other-programmes/course-unit-catalogue/course-unit/2023/493397)
+    * [Intelligent Systems Engineering (Module 2)](https://www.unibo.it/en/study/phd-professional-masters-specialisation-schools-and-other-programmes/course-unit-catalogue/course-unit/2023/455810)
+    * [Software Process Engineering (Module 2)](https://www.unibo.it/en/study/phd-professional-masters-specialisation-schools-and-other-programmes/course-unit-catalogue/course-unit/2023/483714)
+
+---
+
+## About me (pt. 3)
+
+### Research interests
+
+1. **Multi-Agent Systems** and **Agent-Oriented Programming**
+    * cf. Martina's presentation
+    * recent relevant papers: [doi:10.1007/s10458-020-09478-3](https://doi.org/10.1007/s10458-020-09478-3), [doi:10.1007/978-3-031-43264-4_4](https://link.springer.com/chapter/10.1007/978-3-031-43264-4_4)
+
+2. **Distributed Systems**
+    * cf. this presentation
+    * recent relevant papers: [doi:10.1109/ACSOS-C58168.2023.00052](https://doi.org/10.1109/ACSOS-C58168.2023.00052), [doi:10.1109/ICCCN.2019.8846916](https://doi.org/10.1109/ICCCN.2019.8846916)
+
+3. **Artificial Intelligence** and **Machine Learning**
+    * cf. the AEQUITAS project
+    * recent relevant papers: [doi:10.1145/3645103](https://doi.org/10.1145/3645103), [abs/2404.04108](https://arxiv.org/abs/2404.04108)
+
+4. **eXplainable AI** (XAI)
+    * cf. the EXPECTATION project
+    * recent relevant papers: [doi:10.1016/j.cmpb.2023.107536](https://doi.org/10.1016/j.cmpb.2023.107536), [doi:10.1007/978-3-031-40878-6_3](https://doi.org/10.1007/978-3-031-40878-6_3)
+
+5. **Logic Programming**
+    * recent relevant papers: [doi:10.1017/S1471068422000102](https://doi.org/10.1017/S1471068422000102), [doi:10.1016/j.softx.2021.100817](https://doi.org/10.1016/j.softx.2021.100817)
+
+{{% /section %}}
 
 ---
 
