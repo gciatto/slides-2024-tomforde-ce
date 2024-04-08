@@ -77,21 +77,21 @@ section.has-light-background {
 	margin: 0 0 0 0;
 }
 
-.reveal .slide-background {
-	background-color: $backgroundColor;
-	background-image: url("../unibo-seal-blue.svg");
-	background-repeat: no-repeat;
-	background-position: 0.45% 99.2%;
-	background-size: 10%;
-	background-clip: border-box;
-	border-radius: 30px;
-	border-style: solid;
-	border-color: $detailBackgroundColor;
-	border-width: 0.3em;
-}
+// .reveal .slide-background {
+// 	background-color: $backgroundColor;
+// 	background-image: url("../unibo-seal-blue.svg");
+// 	background-repeat: no-repeat;
+// 	background-position: 0.45% 99.2%;
+// 	background-size: 10%;
+// 	background-clip: border-box;
+// 	border-radius: 30px;
+// 	border-style: solid;
+// 	border-color: $detailBackgroundColor;
+// 	border-width: 0.3em;
+// }
 
 .reveal .slide-background:after {
-	content: "M. Baiardi, G. Ciatto, D. Pianini - Infrastructures for the Edge-Cloud Continuum on a Small Scale: a Practical Case Study - ASMECC 2023";
+	content: "materials from the paper: M. Baiardi, G. Ciatto, D. Pianini - Infrastructures for the Edge-Cloud Continuum on a Small Scale: a Practical Case Study - ASMECC 2023";
 	position: absolute;
 	bottom: 2.5%;
 	right: 6%;
