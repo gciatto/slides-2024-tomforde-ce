@@ -1,8 +1,8 @@
 
 +++
 
-title = "Amatorial Private Cloud for Busy Scholars"
-description = "Amatorial Private Cloud for Lazy Scholars"
+title = "Amatorial Container-as-a-Service for Busy Scholars"
+description = "Amatorial Container-as-a-Service for Lazy Scholars"
 outputs = ["Reveal"]
 aliases = [
     "/slides/"
@@ -10,7 +10,7 @@ aliases = [
 
 +++
 
-# Amatorial Private Cloud for <br> <s>Lazy</s> Busy Scholars
+# Amatorial Container-as-a-Service for <s>Lazy</s> Busy Scholars
 
 ### [Giovanni Ciatto](https://www.unibo.it/sitoweb/giovanni.ciatto/en)
 
@@ -80,13 +80,31 @@ aliases = [
 
 ---
 
-{{< slide background-image="https://github.com/DanySK/slides-2023-asmecc/assets/1991673/d73158e1-faf0-4681-94a0-115590bce133" >}}
+## Problem statement
+
+What __hardware__ resources are available for _researchers_ in our university _campus_?
 
 ---
 
+Provisioned via competitive projects, in different moments
+
+* __1__ x NVIDIA Tesla GPU, __15__ x Ascend Atlas NPU
+  + Intel(R) Xeon(R) CPU @ 2.90GHz (_64–96_ cores, _200--800_ GB RAM) 
+
+* __2__ x storage servers (_4–8_ TB each, with RAID)
+
+* several switches and routers
+
+![](cluster.png)
+
+
+---
+
+Provisioned by the campus / department, via ordinary funding
+
 * 8th gen Intel Core i5, 8/16GB RAM, 1TB storage
 
-![](https://github.com/DanySK/slides-2023-asmecc/assets/1991673/d73158e1-faf0-4681-94a0-115590bce133)
+![](./unused-pcs.png)
 
 ---
 
@@ -101,6 +119,9 @@ aliases = [
     * How do I *control access* to my hardware?
     * How *expensive (in time and money)* is it to share?
     * No *standardized procedure* to do so nimbly!
+* Big hardware is bought via _extra-ordinary_ funding
+  * _Heterogeneous_ hardware resources, _joining/leaving_ __at any time__
+  * IT personnel trained on _maintenance_, __not__ really caring about _applications_
 * Hundreds of *decent lab PCs* dramatically *underutilized*
   * Most get turned on in the morning and never shut down
   * Most are *idle* most of the time
@@ -121,17 +142,12 @@ The real issue with systems like this one (arguably, small scale) is
   * Rack vs. desktop
   * Operating system (<i class="fa-brands fa-linux"></i> vs. <i class="fa-brands fa-windows"></i> vs. <i class="fa-brands fa-apple"></i>)
 
-
----
-
-![image](https://github.com/DanySK/slides-2023-asmecc/assets/1991673/906e14ef-e213-4dee-bc56-6d399a993567)
-
-(AI-generated)
-
 ---
 
 ## Tear down the wall:
 ## small-scale edge-cloud continuum
+
+(just a fancy name for a small-scale __Container-as-a-Service__ _cluster_)
 
 ### **Desiderata**
 
