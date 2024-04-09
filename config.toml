@@ -1,5 +1,5 @@
-baseURL = "https://danysk.github.io/slides-2023-asmecc"
-languageCode = "en-us"
+baseURL = "https://gciatto.github.io/slides-2024-tomforde-ce"
+languageCode = "en-gb"
 title = "Infrastructures for the Edge-Cloud Continuum on a Small Scale: a Practical Case Study"
 disableKinds = ["sitemap", "RSS"]
 theme = "reveal-hugo"
@@ -10,7 +10,7 @@ publishDir = "build"
 # uglyURLs = true
 
 [author]
-name = "Danilo Pianini"
+name = "Giovanni Ciatto"
 
 # currently only the unsafe mode for goldmark is supported
 [markup.goldmark.renderer]
