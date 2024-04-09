@@ -1,8 +1,8 @@
 <!DOCTYPE html><html lang="en"><head>
 	<meta name="generator" content="Hugo 0.119.0">
     <meta charset="utf-8">
-<title>Amatorial Private Cloud for Busy Scholars</title>
-<meta name="description" content="Amatorial Private Cloud for Lazy Scholars">
+<title>Amatorial Container-as-a-Service for Busy Scholars</title>
+<meta name="description" content="Amatorial Container-as-a-Service for Lazy Scholars">
 <meta name="author" content="Giovanni Ciatto">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -23,7 +23,7 @@
       <div class="slides">
   
 
-    <section><h1 id="amatorial-private-cloud-for-br-slazys-busy-scholars">Amatorial Private Cloud for <br> <s>Lazy</s> Busy Scholars</h1>
+    <section><h1 id="amatorial-container-as-a-service-for-slazys-busy-scholars">Amatorial Container-as-a-Service for <s>Lazy</s> Busy Scholars</h1>
 <h3 id="giovanni-ciattohttpswwwuniboitsitowebgiovanniciattoen"><a href="https://www.unibo.it/sitoweb/giovanni.ciatto/en">Giovanni Ciatto</a></h3>
 <p>(material from <a href="https://doi.org/10.1109/ACSOS-C58168.2023.00052">https://doi.org/10.1109/ACSOS-C58168.2023.00052</a>)</p>
 </section><section>
@@ -113,15 +113,32 @@
 </ol>
 
 </section>
-</section>
-
-<section data-noprocess="" data-shortcode-slide="" data-background-image="https://github.com/DanySK/slides-2023-asmecc/assets/1991673/d73158e1-faf0-4681-94a0-115590bce133">
-  
 </section><section>
+<h2 id="problem-statement">Problem statement</h2>
+<p>What <strong>hardware</strong> resources are available for <em>researchers</em> in our university <em>campus</em>?</p>
+</section><section>
+<p>Provisioned via competitive projects, in different moments</p>
+<ul>
+<li>
+<p><strong>1</strong> x NVIDIA Tesla GPU, <strong>15</strong> x Ascend Atlas NPU</p>
+<ul>
+<li>Intel(R) Xeon(R) CPU @ 2.90GHz (<em>64–96</em> cores, <em>200–800</em> GB RAM)</li>
+</ul>
+</li>
+<li>
+<p><strong>2</strong> x storage servers (<em>4–8</em> TB each, with RAID)</p>
+</li>
+<li>
+<p>several switches and routers</p>
+</li>
+</ul>
+<p><img src="cluster.png" alt=""></p>
+</section><section>
+<p>Provisioned by the campus / department, via ordinary funding</p>
 <ul>
 <li>8th gen Intel Core i5, 8/16GB RAM, 1TB storage</li>
 </ul>
-<p><img src="https://github.com/DanySK/slides-2023-asmecc/assets/1991673/d73158e1-faf0-4681-94a0-115590bce133" alt=""></p>
+<p><img src="./unused-pcs.png" alt=""></p>
 </section><section>
 <h2 id="multiple-sources-of-inefficiency">Multiple sources of inefficiency</h2>
 <ul>
@@ -144,6 +161,12 @@
 <li>No <em>standardized procedure</em> to do so nimbly!</li>
 </ul>
 </li>
+</ul>
+</li>
+<li>Big hardware is bought via <em>extra-ordinary</em> funding
+<ul>
+<li><em>Heterogeneous</em> hardware resources, <em>joining/leaving</em> <strong>at any time</strong></li>
+<li>IT personnel trained on <em>maintenance</em>, <strong>not</strong> really caring about <em>applications</em></li>
 </ul>
 </li>
 <li>Hundreds of <em>decent lab PCs</em> dramatically <em>underutilized</em>
@@ -177,11 +200,9 @@
 </li>
 </ul>
 </section><section>
-<p><img src="https://github.com/DanySK/slides-2023-asmecc/assets/1991673/906e14ef-e213-4dee-bc56-6d399a993567" alt="image"></p>
-<p>(AI-generated)</p>
-</section><section>
 <h2 id="tear-down-the-wall">Tear down the wall:</h2>
 <h2 id="small-scale-edge-cloud-continuum">small-scale edge-cloud continuum</h2>
+<p>(just a fancy name for a small-scale <strong>Container-as-a-Service</strong> <em>cluster</em>)</p>
 <h3 id="desiderata"><strong>Desiderata</strong></h3>
 <ul>
 <li><em>Runtime addition and removal</em> of hardware resources</li>
