@@ -228,7 +228,7 @@ GPU or FPGA (hardware), specific OS, specific runtime (e.g., the JVM, or the CLR
 <h4 id="isolation">Isolation</h4>
 <p>Different workloads $\to$ different constraints $\to$ isolation at multiple levels</p>
 <h4 id="access-control">access control</h4>
-<p>RBAC backed by a pre-existing central authority</p>
+<p><strong>RBAC</strong> backed by a pre-existing central authority</p>
 </section><section>
 <h2 id="architecture">Architecture</h2>
 <p><img src="architecture.png" alt="architecture"></p>
@@ -260,24 +260,24 @@ GPU or FPGA (hardware), specific OS, specific runtime (e.g., the JVM, or the CLR
 <h3 id="just-almaai-for-friends">Just <strong>AlmaAI</strong> for friends</h3>
 <h4 id="context">Context</h4>
 <ul>
-<li>Multiple projects and research groups can</li>
+<li>Multiple projects and research groups can use the cluster concurrently</li>
 <li>Hardware can be joined in or reserved for other uses at any time</li>
 </ul>
 <h4 id="hardware">Hardware</h4>
 <ul>
-<li>Several compute servers (heavy-load CPU and a lot of memory)</li>
-<li>One GPU-equipped servers (NVIDIA Tesla A100)</li>
-<li>Several NPU-equipped server with Huawei Hardware (Ascend Atlas)</li>
+<li><em>Several</em> <strong>compute</strong> servers (heavy-load CPU and a lot of memory)</li>
+<li><em>One</em> <strong>GPU</strong>-equipped servers (<em>NVIDIA</em> Tesla A100)</li>
+<li><em>Several</em> <strong>NPU</strong>-equipped server with Huawei Hardware (<em>Ascend</em> Atlas)</li>
 </ul>
 <h4 id="constraints">Constraints</h4>
 <ul>
-<li>The authentication infrastructure must use the current <strong>UniBo Active Directory</strong></li>
-<li>Re-training of the current IT personnel to be avoided
+<li>The <em>authentication</em> infrastructure must use the current <strong>UniBo Active Directory</strong></li>
+<li><em>Re-training</em> of the current <strong>IT personnel</strong> to be <em>avoided</em>
 <ul>
-<li>Replacement of personnel that would need re-train is not an option either</li>
+<li><em>Replacement</em> of personnel that would need re-train is <em>not</em> an option either</li>
 </ul>
 </li>
-<li>One-command join and leave of hardware resources</li>
+<li><em>One-command</em> <strong>join</strong> and <strong>leave</strong> of hardware resources</li>
 </ul>
 </section><section>
 <h2 id="1-iaas-infrastructure-selection">1. <strong>IaaS</strong> infrastructure selection</h2>
@@ -555,11 +555,14 @@ GPU or FPGA (hardware), specific OS, specific runtime (e.g., the JVM, or the CLR
 * An example of the infrastructure being built -->
 <h3 id="future-work">Future work</h3>
 <ul>
-<li>Docker plugins for backup and file system isolation</li>
-<li>Incorporation of wake-on-lan for on-demand usage of unused lab desktops</li>
+<li><em>Docker</em> <strong>plugins</strong> for <strong>backup</strong> and <strong>volumes sharing</strong></li>
+<li>Incorporation of <strong>wake-on-lan</strong> for on-demand usage of unused lab desktops</li>
+<li><strong>Coordination</strong> tools for same-stack services (e.g. for <strong>experiments</strong> parallelisation)
+<ul>
+<li>e.g. via tuple spaces / centres</li>
 </ul>
-</section><section>
-<p><strong>and, by the way, the ACSOS 2023 Telegram bot is actually running on the infrastructure we just described</strong></p>
+</li>
+</ul>
 </section>
 
   
