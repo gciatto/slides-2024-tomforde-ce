@@ -222,12 +222,12 @@ RBAC backed by a pre-existing central authority
 #### Hardware
 
 * Several compute servers (heavy-load CPU and a lot of memory)
-* Several GPU-equipped servers (NVIDIA Tesla A100)
-* 2 "inference servers" with custom NPU (Atlas 800-model 3010)
+* One GPU-equipped servers (NVIDIA Tesla A100)
+* Several NPU-equipped server with Huawei Hardware (Ascend Atlas)
 
 #### Constraints
 
-* The authentication infrastructure must use the current UniBo Active Directory
+* The authentication infrastructure must use the current __UniBo Active Directory__
 * Re-training of the current IT personnel to be avoided
     * Replacement of personnel that would need re-train is not an option either
 * One-command join and leave of hardware resources
@@ -361,11 +361,11 @@ Authentication mechanisms already in place
     * Also people may be reluctant to adopt something they don't know
   * Proprietary solutions are at a risk of *vendor lock-in*
 
-### In this work
+<!-- ### In this work
 
 * A possibile architecture for a small-scale ECC
 * An actionable decision taking process to build it
-* An example of the infrastructure being built
+* An example of the infrastructure being built -->
 
 ### Future work
 
