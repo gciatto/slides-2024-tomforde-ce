@@ -183,7 +183,7 @@ Different workloads $\to$ different constraints $\to$ isolation at multiple leve
 
 #### access control
 
-RBAC backed by a pre-existing central authority
+__RBAC__ backed by a pre-existing central authority
 
 ---
 
@@ -216,21 +216,21 @@ RBAC backed by a pre-existing central authority
 
 #### Context
 
-* Multiple projects and research groups can
+* Multiple projects and research groups can use the cluster concurrently
 * Hardware can be joined in or reserved for other uses at any time
 
 #### Hardware
 
-* Several compute servers (heavy-load CPU and a lot of memory)
-* One GPU-equipped servers (NVIDIA Tesla A100)
-* Several NPU-equipped server with Huawei Hardware (Ascend Atlas)
+* _Several_ __compute__ servers (heavy-load CPU and a lot of memory)
+* _One_ __GPU__-equipped servers (_NVIDIA_ Tesla A100)
+* _Several_ __NPU__-equipped server with Huawei Hardware (_Ascend_ Atlas)
 
 #### Constraints
 
-* The authentication infrastructure must use the current __UniBo Active Directory__
-* Re-training of the current IT personnel to be avoided
-    * Replacement of personnel that would need re-train is not an option either
-* One-command join and leave of hardware resources
+* The _authentication_ infrastructure must use the current __UniBo Active Directory__
+* _Re-training_ of the current __IT personnel__ to be _avoided_
+    * _Replacement_ of personnel that would need re-train is _not_ an option either
+* _One-command_ __join__ and __leave__ of hardware resources
 
 ---
 
@@ -369,9 +369,7 @@ Authentication mechanisms already in place
 
 ### Future work
 
-* Docker plugins for backup and file system isolation
-* Incorporation of wake-on-lan for on-demand usage of unused lab desktops
-
----
-
-**and, by the way, the ACSOS 2023 Telegram bot is actually running on the infrastructure we just described**
+* _Docker_ __plugins__ for __backup__ and __volumes sharing__
+* Incorporation of __wake-on-lan__ for on-demand usage of unused lab desktops
+* __Coordination__ tools for same-stack services (e.g. for __experiments__ parallelisation)
+    + e.g. via tuple spaces / centres
